@@ -11,40 +11,50 @@ public:
         this->next = NULL;
     }
 };
-void insert_at_tail(Node *&head, int val)
+void insert_at_tail(Node *&head,Node* &tail, int val)
 {
     Node *newnode = new Node(val);
+  
 
     if(head==NULL)
     {
-        head=newnode;
-        return;
-    }
 
-    Node *temp = head;
+        head=newnode;
+        // temp==newnode;
+        return; 
+    }
+     Node *temp = head;
     while (temp->next != NULL) // temp next jotokoon nh null hocca
     {
         temp=temp->next; // temp is last node obstan korca ...;
     }
     temp->next=newnode;
+    tail=newnode;
 }
 void print_linked_list(Node *head)
 {
     Node *temp = head;
     while (temp != NULL) // temp node jotokon nh null hoy....
     {
-        cout<<temp->val;
+        cout<<temp->val<<" ";
         temp=temp->next;
     }
 }
 int main()
 {
     Node *head = NULL;
+    // Node *tail = NULL;
     // Node *a = new Node(20);
 
+
     // head->next = a;
-    insert_at_tail(head, 30);
+    insert_at_tail(head,tail, 30);
+    insert_at_tail(head, tail,40);
+    insert_at_tail(head,tail, 50);
+    insert_at_tail(head,tail, 60);
+    insert_at_tail(head,tail, 70);
     print_linked_list(head);
+    // cout<<head->val<<endl<<tail->val;
 
     return 0;
 }

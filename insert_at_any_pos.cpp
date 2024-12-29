@@ -11,11 +11,18 @@ public:
         this->next = NULL;
     }
 };
-void insert_at_head(Node *&head, int val)
+void insert_at_any_pos(Node *&head, int idx, int val)
 {
-    Node *newnode = new Node(val); // ata new node value sat kora jonno
-    newnode->next = head;          // new node and previus valu  link kora jonno
-    head = newnode;                // new node ka value sat kora jonno
+    Node *newnode = new Node(val);
+    Node *temp = head;
+    for (int i = 1; i < idx; i++)
+    {
+        temp=temp->next;
+    }
+    //          temp at idx-1;
+
+    newnode->next=temp->next;   // new node next amier temp next hoyca .....
+    temp->next=newnode;
 }
 void print_all_linkd(Node *head)
 {
@@ -28,16 +35,13 @@ void print_all_linkd(Node *head)
 }
 int main()
 {
-Node *head = new Node(10); // প্রথম নোড তৈরি এবং head পয়েন্টার সেট
-Node *a = new Node(20);    // দ্বিতীয় নোড তৈরি
-head->next = a;            // head এবং a কে লিঙ্ক করা
-
+    Node *head = new Node(10);
+    Node *a = new Node(20);
+    head->next = a;
 
     head->next = a;
-    insert_at_head(head, 100);
+    insert_at_any_pos(head, 1, 100);
     print_all_linkd(head);
 
     return 0;
-
-  
 }
