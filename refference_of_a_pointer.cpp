@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-void fun(int *&p)
+void fun(int *p)
 {
     //  cout<<"in fun : " <<*p<<endl;
     // p = 100;
